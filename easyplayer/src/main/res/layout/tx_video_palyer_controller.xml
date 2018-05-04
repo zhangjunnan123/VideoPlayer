@@ -125,7 +125,8 @@
         android:layout_height="match_parent"
         android:background="#6c0b0b0b"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/replay"
