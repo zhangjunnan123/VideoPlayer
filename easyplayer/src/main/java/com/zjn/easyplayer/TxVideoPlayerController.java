@@ -210,6 +210,7 @@ public class TxVideoPlayerController
 
     @Override
     protected void onPlayStateChanged(int playState) {
+
         switch (playState) {
             case NiceVideoPlayer.STATE_IDLE:
                 break;
@@ -229,23 +230,23 @@ public class TxVideoPlayerController
                 break;
             case NiceVideoPlayer.STATE_PLAYING:
                 mLoading.setVisibility(View.GONE);
-                mRestartPause.setImageResource(R.drawable.ic_player_pause);
+                mRestartPause.setImageResource(R.mipmap.ic_player_pause);
                 startDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_PAUSED:
                 mLoading.setVisibility(View.GONE);
-                mRestartPause.setImageResource(R.drawable.ic_player_start);
+                mRestartPause.setImageResource(R.mipmap.ic_player_start);
                 cancelDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_BUFFERING_PLAYING:
                 mLoading.setVisibility(View.VISIBLE);
-                mRestartPause.setImageResource(R.drawable.ic_player_pause);
+                mRestartPause.setImageResource(R.mipmap.ic_player_pause);
                 mLoadText.setText("正在缓冲...");
                 startDismissTopBottomTimer();
                 break;
             case NiceVideoPlayer.STATE_BUFFERING_PAUSED:
                 mLoading.setVisibility(View.VISIBLE);
-                mRestartPause.setImageResource(R.drawable.ic_player_start);
+                mRestartPause.setImageResource(R.mipmap.ic_player_start);
                 mLoadText.setText("正在缓冲...");
                 cancelDismissTopBottomTimer();
                 break;
@@ -269,7 +270,7 @@ public class TxVideoPlayerController
         switch (playMode) {
             case NiceVideoPlayer.MODE_NORMAL:
                 mBack.setVisibility(View.GONE);
-                mFullScreen.setImageResource(R.drawable.ic_player_enlarge);
+                mFullScreen.setImageResource(R.mipmap.ic_player_enlarge);
                 mFullScreen.setVisibility(View.VISIBLE);
                 mClarity.setVisibility(View.GONE);
                 mBatteryTime.setVisibility(View.GONE);
@@ -281,7 +282,7 @@ public class TxVideoPlayerController
             case NiceVideoPlayer.MODE_FULL_SCREEN:
                 mBack.setVisibility(View.VISIBLE);
                 mFullScreen.setVisibility(View.GONE);
-                mFullScreen.setImageResource(R.drawable.ic_player_shrink);
+                mFullScreen.setImageResource(R.mipmap.ic_player_shrink);
                 if (clarities != null && clarities.size() > 1) {
                     mClarity.setVisibility(View.VISIBLE);
                 }
@@ -309,24 +310,24 @@ public class TxVideoPlayerController
                     BatteryManager.BATTERY_STATUS_UNKNOWN);
             if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
                 // 充电中
-                mBattery.setImageResource(R.drawable.battery_charging);
+                mBattery.setImageResource(R.mipmap.battery_charging);
             } else if (status == BatteryManager.BATTERY_STATUS_FULL) {
                 // 充电完成
-                mBattery.setImageResource(R.drawable.battery_full);
+                mBattery.setImageResource(R.mipmap.battery_full);
             } else {
                 int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
                 int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 0);
                 int percentage = (int) (((float) level / scale) * 100);
                 if (percentage <= 10) {
-                    mBattery.setImageResource(R.drawable.battery_10);
+                    mBattery.setImageResource(R.mipmap.battery_10);
                 } else if (percentage <= 20) {
-                    mBattery.setImageResource(R.drawable.battery_20);
+                    mBattery.setImageResource(R.mipmap.battery_20);
                 } else if (percentage <= 50) {
-                    mBattery.setImageResource(R.drawable.battery_50);
+                    mBattery.setImageResource(R.mipmap.battery_50);
                 } else if (percentage <= 80) {
-                    mBattery.setImageResource(R.drawable.battery_80);
+                    mBattery.setImageResource(R.mipmap.battery_80);
                 } else if (percentage <= 100) {
-                    mBattery.setImageResource(R.drawable.battery_100);
+                    mBattery.setImageResource(R.mipmap.battery_100);
                 }
             }
         }
@@ -344,9 +345,9 @@ public class TxVideoPlayerController
         mImage.setVisibility(View.VISIBLE);
 
         mBottom.setVisibility(View.GONE);
-        mFullScreen.setImageResource(R.drawable.ic_player_enlarge);
+        mFullScreen.setImageResource(R.mipmap.ic_player_enlarge);
 
-        mLength.setVisibility(View.VISIBLE);
+        mLength.setVisibility(View.GONE);
 
         mTop.setVisibility(View.VISIBLE);
         mBack.setVisibility(View.GONE);
